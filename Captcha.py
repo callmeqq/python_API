@@ -56,6 +56,8 @@ def get_captcha(captcha_response):
     # 通过stringIO将验证码图片放入内存，省去保存到本地再读取
     image_buff = StringIO.StringIO(captcha_response.content)
     captcha_image = Image.open(image_buff)
+    # 释放内存
+    image_buff.close()
     # captcha_image.show()
     # 将图片转换为灰度图像
     im = captcha_image.convert('L')

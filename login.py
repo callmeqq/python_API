@@ -39,7 +39,7 @@ class Login:
     @classmethod
     def get_html_text(cls, username, password, enum):
         response = cls.__login_jwxt(username, password)
-        while response.text == u'验证码错误':
+        while response == u'验证码错误':
             response = cls.__login_jwxt(username, password)
         if response != 'success':
             return response
@@ -54,7 +54,7 @@ class Login:
     @classmethod
     def get_today_schedule_data(cls, username, password, date):
         response = cls.__login_jwxt(username, password)
-        while response.text == u'验证码错误':
+        while response == u'验证码错误':
             response = cls.__login_jwxt(username, password)
         if response != 'success':
             return response
